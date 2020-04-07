@@ -1,18 +1,19 @@
 const express = require('express');
-const models = require('./models');
 const expressGraphQL = require('express-graphql');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
-const passportConfig = require('./services/auth');
 const MongoStore = require('connect-mongo')(session);
+
+const models = require('./models');
+const passportConfig = require('./services/auth');
 const schema = require('./schema/schema');
 
 // Create a new Express application
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = '';
+const MONGO_URI = 'mongodb://localhost:27017/authGraphQLAndPasPortdb';
 
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
